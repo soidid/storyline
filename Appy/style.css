@@ -110,6 +110,8 @@ body {
 	height:25px;
 	border: 5px solid black;
 	margin-left: -10px;
+	z-index: 10;
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
 	transform: rotate(45deg);
 
 }
