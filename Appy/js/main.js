@@ -17,12 +17,21 @@ $( window ).scroll(function() {
 
   var value = currentScroll - blockOffset + 50;
       value = (value > 20) ? value + 200 : value;
-      value = (value > height) ? height : value;
+
+  if(value > height){
+  	$("#Topbar-year").text("");
+    value = height
+  }
   
   //console.log(value+"<>"+height);
 
-  if(value > 0)
+  if(value > 0){
   	$(".Line-follow").height(value);
+
+  }else{
+  	$("#Topbar-year").text("");
+  }
+  	
 
 });
 
@@ -38,49 +47,46 @@ $( document ).ready(function() {
 	// Controller
 	var controller = new ScrollMagic({loglevel: 3});
     
-    $(".Event").each(function(index, obj){
-    	// Animatioin
-		/*
-		var RollIn = new TimelineMax({paused: true, repeat: 0});
-			RollIn.set(obj, {marginLeft: "-100px"})
-		          .to(obj, 1, {marginLeft: "30%", ease:Power4.easeOut});
-        */
-		// var RollIn = new TimelineMax({paused: true, repeat: 0});
-		// 	RollIn.set(obj, {right: "-50%"})
-		//           .to(obj, 1, {marginRight: "5%", ease:Power4.easeOut});
-        
-  //        * Choose other ease options at: http://greensock.com/jump-start-js#easing
-         
-		// // Scene
-		// var sceneIn = new ScrollScene({triggerElement: obj})
-		// 			  .addTo(controller)
-		// 	          .setTween(RollIn.play());
+    /* ------ 1 ------ */
+    var TopField = $("#Topbar-year");
 
-	    
-	   
+    $(".Info-year").each(function(index, obj){
+    	var setText = function(){
+    		TopField.text(obj.innerHTML);
+    	}
+    	
+    	// Animatioin
+		var RollIn = new TimelineMax({paused: true, repeat: 0});
+			RollIn.set(TopField, {opacity:0.1, onStart:setText})
+		          .to(TopField, 1, {opacity:1, ease:Power4.easeOut});
+      
+        if(index ===0 )// First year do not trigger
+        	return;
+
+		// Scene
+		var sceneIn = new ScrollScene({triggerElement: obj, triggerHook: 'onLeave',})
+					  .addTo(controller)
+			          .setTween(RollIn.play());
     	
     });
 
-    /*
-    $(".People").each(function(index, obj){
+    /* ------ 2 ------ */
+    $(".Event").each(function(index, obj){
     	// Animatioin
-		
 		var RollIn = new TimelineMax({paused: true, repeat: 0});
-			RollIn.set(obj, {opacity: "0"})
-			      .to(obj, 2, {opacity: "100", ease:Power4.easeOut});
-
+			RollIn.set(obj, {opacity:0.1})
+		          .to(obj, 1, {opacity:1, ease:Power4.easeOut});
+        
+        /* Choose other ease options at: http://greensock.com/jump-start-js#easing */
+         
 		// Scene
 		var sceneIn = new ScrollScene({triggerElement: obj})
 					  .addTo(controller)
 			          .setTween(RollIn.play());
-
+    	
     });
-    */
 
-    
    
-   
-	
 	
 });
 
