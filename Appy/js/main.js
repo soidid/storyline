@@ -15,7 +15,8 @@ $( window ).scroll(function() {
   var currentScroll = $(window).scrollTop();
   var blockOffset = $(".History").offset().top;
 
-  var value = currentScroll - blockOffset + 403;
+  var value = currentScroll - blockOffset + 50;
+      value = (value > 20) ? value + 200 : value;
       value = (value > height) ? height : value;
   
   //console.log(value+"<>"+height);
@@ -33,13 +34,10 @@ function onComplete(){
 }
 $( document ).ready(function() {
 
-    
-
+   
 	// Controller
 	var controller = new ScrollMagic({loglevel: 3});
     
-
-
     $(".Event").each(function(index, obj){
     	// Animatioin
 		/*
@@ -47,28 +45,19 @@ $( document ).ready(function() {
 			RollIn.set(obj, {marginLeft: "-100px"})
 		          .to(obj, 1, {marginLeft: "30%", ease:Power4.easeOut});
         */
-		var RollIn = new TimelineMax({paused: true, repeat: 0});
-			RollIn.set(obj, {left: "-50%"})
-		          .to(obj, 1, {marginLeft: "5%", ease:Power4.easeOut});
-        /*
-         * Choose other ease options at: http://greensock.com/jump-start-js#easing
-         */
-		// Scene
-		var sceneIn = new ScrollScene({triggerElement: obj})
-					  .addTo(controller)
-			          .setTween(RollIn.play());
+		// var RollIn = new TimelineMax({paused: true, repeat: 0});
+		// 	RollIn.set(obj, {right: "-50%"})
+		//           .to(obj, 1, {marginRight: "5%", ease:Power4.easeOut});
+        
+  //        * Choose other ease options at: http://greensock.com/jump-start-js#easing
+         
+		// // Scene
+		// var sceneIn = new ScrollScene({triggerElement: obj})
+		// 			  .addTo(controller)
+		// 	          .setTween(RollIn.play());
 
 	    
-	    // // Animatioin
-		// var RollOut = new TimelineMax({paused: true});
-		// 	RollOut.set(obj, {marginLeft: "30%"})
-		// 	       .to(obj, 2, {marginLeft: "-100px", ease:Power2.easeInOut, onComplete: onComplete});
-    
-		// // Scene
-		// var sceneOut = new ScrollScene({triggerElement: obj, triggerHook: 'onLeave'})
-		// 			  .addTo(controller)
-		// 	          .setTween(RollOut.play());
-	    
+	   
     	
     });
 
