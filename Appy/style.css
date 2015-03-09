@@ -216,7 +216,7 @@ body {
     }
 }
 .Info-year {
-	border-left: 1px solid gray;
+	border-left: 2px solid gray;
 	background: rgb(158,206,202);
     color: white;
     padding: 4px 50px;
@@ -319,7 +319,7 @@ p {
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     height: 100%;
-    
+
 }
 .Menu-line {
 	position: absolute;
