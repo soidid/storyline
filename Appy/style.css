@@ -17,6 +17,10 @@ body {
 .Wrapper {
 	width: 100%;
 }
+.Wrapper.is-hide {
+    position: absolute;
+    left: -100%;
+}
 @media screen and (min-width: 960px){
 	.Wrapper {
 		width: 960px;
@@ -24,17 +28,23 @@ body {
     }
 }
 .Logo {
-	position: fixed;
-	left: 10px;
-	top: 55px;
-	background: rgb(158,206,202);
-	color: white;
-	padding: 10px;
-	z-index: 100;
-	text-align: center;
-	font-size: 22px;
-	
+	display: none;
 }
+/*@media screen and (min-width: 400px){
+	.Logo {
+		display: block;
+	    position: fixed;
+	    left: 10px;
+	    top: 55px;
+	    background: rgb(158,206,202);
+	    color: white;
+	    padding: 10px;
+	    z-index: 100;
+	    text-align: center;
+	    font-size: 22px;
+	
+   }
+}*/
 .Topbar {
 
 	width: 100%;
@@ -63,23 +73,65 @@ body {
 	font-weight: 100;
 	padding-top: 6px;
 }
+.Topbar-menu {
+	top: 0;
+	float: right;
+}
+.Topbar-menuItem, .Topbar-menuItem:visited, .Topbar-menuItem:hover{
+	margin-right: 10px;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 4px;
+	color: rgb(53,55,54);
+	text-decoration: none;
+	cursor: pointer;
+}
+.Topbar-menuItem.is-active {
+    background: gray;
+    color: white;
+}
 .Cover {
-	margin-left: 30%;
+	padding: 50px 10px 10px 10px;
+	width: 100%;
 	position: relative;
+	text-align: center;
 }
 .Cover-img {
-	width: 120px;
-	height: 120px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
-	display: block;
-	position: relative;
-	left: -140px;
-    top: 110px;
+	margin: 10px 0px;
+}
+.Cover-subtext {
+	text-align: left;
 }
 .Cover-text {
 	font-size: 20px;
 	font-weight: 700;
-	max-width: 50%;
+	text-align: left;
+}
+@media screen and (min-width: 600px){
+    .Cover {
+    	margin-left: 30%;
+    	position: relative;
+    	text-align: left;
+    }
+    .Cover-img {
+    	width: 120px;
+    	height: 120px;
+    	border-radius: 50%;
+    	display: block;
+    	position: relative;
+    	left: -140px;
+        top: 110px;
+    }
+    .Cover-text {
+    	font-size: 20px;
+    	font-weight: 700;
+    	max-width: 50%;
+
+    }
 }
 .History {
 	position: relative;
@@ -105,10 +157,19 @@ body {
 
 .Line {
 	position:absolute;
-	left:30%;
+	left: 30px;
 	height: 100%;
-	width: 1px;
+	width: 2px;
     background-color: rgb(120,120,120);
+}
+@media screen and (min-width: 600px){
+	.Line {
+	   position:absolute;
+	   left:30%;
+	   height: 100%;
+	   width: 2px;
+       background-color: rgb(120,120,120);
+    }
 }
 .Line-follow {
 	position:absolute;
@@ -123,21 +184,36 @@ body {
 	margin-top: 100px;
 	position: relative;
 }
+
 .Info {
-	display: inline-block;
-    width: 30%;
-    text-align: right;
-    float: left;
-    margin-right: 12px;
+	display: block;
+	margin-left: 30px;
     
+}
+@media screen and (min-width: 600px){
+	.Info {
+	    display: inline-block;
+	    margin-left: 0px;
+        width: 30%;
+        text-align: right;
+        float: left;
+        margin-right: 12px;
+   }
 }
 .Info-text {
 	margin-top: 4px;
 }
 .Info-textInner {
-	padding: 20px 10px 4px 4px;
-	border-bottom: 1px dotted gray;
-	line-height: 30px;
+	padding: 20px 10px 4px 10px;
+	display: block;
+}
+@media screen and (min-width: 600px){
+	.Info-textInner {
+	   padding: 20px 10px 4px 4px;
+	   border-bottom: 1px dotted gray;
+	   line-height: 30px;
+	   display: inline-block;
+    }
 }
 .Info-year {
 	border-left: 1px solid gray;
@@ -149,8 +225,23 @@ body {
     font-size: 22px;
     position: absolute;
     top: -50px;
-    left: 30%;
+    left: 30px;
 
+}
+@media screen and (min-width: 600px){
+	.Info-year {
+	    border-left: 2px solid gray;
+	    background: rgb(158,206,202);
+        color: white;
+        padding: 4px 50px;
+        margin-bottom: 4px;
+        display: inline-block;
+        font-size: 22px;
+        position: absolute;
+        top: -50px;
+        left: 30%;
+
+    }
 }
 .Info-date {
 	background: rgb(158,206,202);
@@ -160,12 +251,21 @@ body {
     display: inline-block;
 }
 .Event {
-	width: 50%;
+	margin-left: 31px;
+    margin-right: 8px;
 	background: white;
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	overflow:hidden;  _overflow:visible;  zoom:1;
-
 	opacity: 0.1;
+}
+@media screen and (min-width: 600px){
+	.Event {
+	   width: 50%;
+	   background: white;
+	   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	   overflow:hidden;  _overflow:visible;  zoom:1;
+	   opacity: 0.1;
+    }
 }
 .Event-text {
 	padding: 5px 10px 5px 20px;
@@ -194,6 +294,66 @@ p {
 	background: rgb(220,220,220);
 	font-size: 14px;
 	padding: 8px;
+}
+/* -----------------------------------------------
+             MENU
+   ----------------------------------------------- */
+.Menu {
+	position: absolute;
+	background: rgb(229,228,228);
+	width: 0px;
+	overflow: hidden;
+	padding-bottom: 100px;
+	top: 50px;
+	right: -100%;
+
+	transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.Menu.is-show {
+	right: 0px;
+	width: 100%;
+	transition-property: right;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+    height: 100%;
+    
+}
+.Menu-line {
+	position: absolute;
+	height: 100%;
+	top: 40px;
+	margin-left: 10px;
+	border-left: 2px solid gray;
+}
+.Menu-title {
+	color: gray;
+	font-size: 20px;
+	padding: 10px;
+	text-align: center;
+}
+.Menu-item {
+
+	position: relative;
+	background: white;
+	padding: 10px;
+	margin: 5px 5px 5px 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.Menu-itemYear {
+	color: #009688;
+	font-weight: 800;
+}
+.Menu-itemTimeIndicator {
+	width: 12px;
+	height: 12px;
+	border: 2px solid gray;
+	border-radius: 50%;
+	position: absolute;
+	left: -20px;
+	top: 20px;
 }
 
 

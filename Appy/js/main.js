@@ -15,8 +15,8 @@ $( window ).scroll(function() {
   var currentScroll = $(window).scrollTop();
   var blockOffset = $(".History").offset().top;
 
-  var value = currentScroll - blockOffset + 50;
-      value = (value > 20) ? value + 200 : value;
+  var value = currentScroll - blockOffset + 203;
+      value = (value > 20) ? value + 253 : value;
 
   if(value > height){
   	$("#Topbar-year").text("");
@@ -42,6 +42,23 @@ function onComplete(){
     console.log("complete");
 }
 $( document ).ready(function() {
+
+  $("#timeline-button").on("click",function () {
+      $(".Menu").removeClass("is-show");
+      $(".Wrapper").removeClass("is-hide");
+
+      $(".Topbar-menuItem").removeClass("is-active");
+      $("#timeline-button").addClass("is-active");
+  });
+  $("#key-button").on("click",function () {
+      $(".Menu").addClass("is-show");
+      $(".Wrapper").addClass("is-hide");
+
+      $(".Topbar-menuItem").removeClass("is-active");
+      $("#key-button").addClass("is-active");
+
+      $('html, body').animate({scrollTop : 0}, 0);
+  });
 
    
 	// Controller
