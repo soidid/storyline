@@ -15,8 +15,8 @@ $( window ).scroll(function() {
   var currentScroll = $(window).scrollTop();
   var blockOffset = $(".History").offset().top;
 
-  var value = currentScroll - blockOffset + 203;
-      value = (value > 20) ? value + 253 : value;
+  var value = currentScroll - blockOffset + 103;
+      value = (value > 20) ? value + 103 : value;
 
   if(value > height){
   	$("#Topbar-year").text("");
